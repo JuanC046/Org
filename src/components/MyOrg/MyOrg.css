@@ -1,0 +1,18 @@
+.org-section {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.org-section h3 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: #6278F7;
+    padding-bottom: 24px;
+    border-bottom: 4px solid #6278F7;
+}
+.org-section img {
+    position: absolute;
+    right: 10%;
+    cursor: pointer;
+}
