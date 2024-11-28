@@ -22,3 +22,10 @@
     outline-color: #6278F7;
     font-size: 1rem;
 }
+
+.options-list select option {
+    background-color: white;
+    color: #212121;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
