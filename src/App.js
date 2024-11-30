@@ -10,7 +10,14 @@ import Team from "./components/Team/Team";
 import Footer from "./components/Footer/Footer";
 function App() {
     const [showForm, setShowForm] = useState(false);
-    const [members, setMembers] = useState([]);
+    const [members, setMembers] = useState([
+        {
+            name: "Juan López",
+            role: "Desarrollador",
+            photo: "https://media.licdn.com/dms/image/v2/D4E03AQEETDRGt8ceAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1693932494749?e=1738195200&v=beta&t=LT_0zDOHCtUj-siS4nTbENNkSoqlaO7mgHTYcNZM9No",
+            team: "Front End",
+        },
+    ]);
 
     const setShow = () => {
         setShowForm(!showForm);
