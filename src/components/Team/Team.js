@@ -1,8 +1,14 @@
 import "./Team.css";
 
+
 import Member from "../Member/Member";
-const Team = ({ team, members, deleteMember }) => {
+const Team = ({ team, members, deleteMember, updateColor }) => {
     const { name, primaryColor, secondaryColor } = team;
+    
+
+    const handleColorChange = (e) => {
+        updateColor(e.target.value, name);
+    };
     return (
         <>
             {members.length > 0 && (
@@ -12,6 +18,8 @@ const Team = ({ team, members, deleteMember }) => {
                         backgroundColor: secondaryColor,
                     }}
                 >
+                    <input className="color-picker" type="color" value={secondaryColor}
+                    onChange={handleColorChange}/>
                     <h3
                         style={{
                             borderColor: primaryColor,
@@ -21,7 +29,12 @@ const Team = ({ team, members, deleteMember }) => {
                     </h3>
                     <div className="team-members">
                         {members.map((member, index) => (
-                            <Member key={index} member={member} primaryColor={primaryColor} deleteMember={deleteMember} />
+                            <Member
+                                key={index}
+                                member={member}
+                                primaryColor={primaryColor}
+                                deleteMember={deleteMember}
+                            />
                         ))}
                     </div>
                 </section>

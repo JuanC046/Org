@@ -8,8 +8,39 @@ import Form from "./components/Form/Form";
 import MyOrg from "./components/MyOrg/MyOrg";
 import Team from "./components/Team/Team";
 import Footer from "./components/Footer/Footer";
+
+import hexToRgba from 'hex-to-rgba';
 function App() {
     const [showForm, setShowForm] = useState(false);
+    const [teams, setTeams] = useState([
+        {
+            name: "Programación",
+            primaryColor: "#57C278",
+            secondaryColor: "#D9F7E9",
+        },
+        {
+            name: "Front End",
+            primaryColor: "#82CFFA",
+            secondaryColor: "#E8F8FF",
+        },
+        {
+            name: "Data Science",
+            primaryColor: "#A6D157",
+            secondaryColor: "#F0F8E2",
+        },
+        { name: "Devops", primaryColor: "#E06B69", secondaryColor: "#FDE7E8" },
+        {
+            name: "UX y Diseño",
+            primaryColor: "#DB6EBF",
+            secondaryColor: "#FAE9F5",
+        },
+        { name: "Móvil", primaryColor: "#FFBA05", secondaryColor: "#FFF5D9" },
+        {
+            name: "Innovación y  Gestión",
+            primaryColor: "#FF8A29",
+            secondaryColor: "#FFEEDF",
+        },
+    ]);
     const [members, setMembers] = useState([
         {
             name: "Juan López",
@@ -41,45 +72,25 @@ function App() {
         setShowForm(!showForm);
     };
 
-    // Teams list
-    const teams = [
-        {
-            name: "Programación",
-            primaryColor: "#57C278",
-            secondaryColor: "#D9F7E9",
-        },
-        {
-            name: "Front End",
-            primaryColor: "#82CFFA",
-            secondaryColor: "#E8F8FF",
-        },
-        {
-            name: "Data Science",
-            primaryColor: "#A6D157",
-            secondaryColor: "#F0F8E2",
-        },
-        { name: "Devops", primaryColor: "#E06B69", secondaryColor: "#FDE7E8" },
-        {
-            name: "UX y Diseño",
-            primaryColor: "#DB6EBF",
-            secondaryColor: "#FAE9F5",
-        },
-        { name: "Móvil", primaryColor: "#FFBA05", secondaryColor: "#FFF5D9" },
-        {
-            name: "Innovación y  Gestión",
-            primaryColor: "#FF8A29",
-            secondaryColor: "#FFEEDF",
-        },
-    ];
+    const updateColor = (color, teamName) => {
+        setTeams(
+            teams.map((team) => {
+                if (team.name === teamName) {
+                    team.primaryColor = color;
+                    team.secondaryColor = hexToRgba(color, 0.5);
+                }
+                return team;
+            })
+        );
+    };
 
     const newMember = (member) => {
         console.log("New member:", member);
         setMembers([...members, member]);
     };
-
     const deleteMember = (member) => {
         setMembers(members.filter((m) => m !== member));
-    }
+    };
 
     return (
         <div className="App">
@@ -100,6 +111,7 @@ function App() {
                         (member) => member.team === team.name
                     )}
                     deleteMember={deleteMember}
+                    updateColor={updateColor}
                 />
             ))}
             <Footer />

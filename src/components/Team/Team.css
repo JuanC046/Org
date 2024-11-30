@@ -5,6 +5,14 @@
     align-items: center;
     justify-content: center;
 }
+.color-picker {
+    position: relative;
+    top: 32px;
+    left: 45%;
+    box-sizing: border-box;
+}
+
+
 .team h3 {
     font-size: 2rem;
     font-weight: 400;
