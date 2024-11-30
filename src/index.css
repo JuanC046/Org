@@ -1,4 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&family=Prata&display=swap');
+
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: "Prata", serif;

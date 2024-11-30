@@ -9,6 +9,8 @@ import MyOrg from "./components/MyOrg/MyOrg";
 import Team from "./components/Team/Team";
 function App() {
     const [showForm, setShowForm] = useState(false);
+    const [members, setMembers] = useState([]);
+
     const setShow = () => {
         setShowForm(!showForm);
     };
@@ -44,16 +46,31 @@ function App() {
         },
     ];
 
+    const newMember = (member) => {
+        console.log("New member:", member);
+        setMembers([...members, member]);
+    };
+
     return (
         <div className="App">
             <Header />
-            {showForm && <Form teams={teams.map((team) => team.name)}/>} {/* {showForm ? <Form /> : null} */}
+            {showForm && (
+                <Form
+                    teams={teams.map((team) => team.name)}
+                    newMember={newMember}
+                />
+            )}{" "}
+            {/* {showForm ? <Form /> : null} */}
             <MyOrg setShow={setShow} />
-            {
-                teams.map((team, index) => 
-                    <Team key={index} team={team} />
-                )
-            }
+            {teams.map((team, index) => (
+                <Team
+                    key={index}
+                    team={team}
+                    members={members.filter(
+                        (member) => member.team === team.name
+                    )}
+                />
+            ))}
         </div>
     );
 }

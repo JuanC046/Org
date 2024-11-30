@@ -1,5 +1,6 @@
 .team {
     display: flex;
+    flex-direction: column;
     width: 100%;
     align-items: center;
     justify-content: center;
@@ -10,4 +11,10 @@
     color: #212121;
     padding-bottom: 8px;
     border-bottom: 4px solid;
+}
+.team-members {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
 }
