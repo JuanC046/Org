@@ -7,6 +7,7 @@ import Header from "./components/header/Header";
 import Form from "./components/Form/Form";
 import MyOrg from "./components/MyOrg/MyOrg";
 import Team from "./components/Team/Team";
+import Footer from "./components/Footer/Footer";
 function App() {
     const [showForm, setShowForm] = useState(false);
     const [members, setMembers] = useState([]);
@@ -71,6 +72,7 @@ function App() {
                     )}
                 />
             ))}
+            <Footer />
         </div>
     );
 }
