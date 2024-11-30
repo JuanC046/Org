@@ -5,7 +5,7 @@ import "./Form.css";
 import TextField from "../TextField/TextField";
 import OptionsList from "../OptionsList/OptionsList";
 import Button from "../Button/Button";
-const Form = () => {
+const Form = ({teams}) => {
     const [name, setName] = useState("");
     const [position, setPosition] = useState("");
     const [photo, setPhoto] = useState("");
@@ -46,7 +46,7 @@ const Form = () => {
                     setValue={setPhoto}
                     required
                 />
-                <OptionsList value={team} setValue={setTeam} required />
+                <OptionsList value={team} setValue={setTeam} required options={teams} />
                 <Button text="Crear colaborador" />
             </form>
         </section>

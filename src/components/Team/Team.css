@@ -1,0 +1,13 @@
+.team {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.team h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: #212121;
+    padding-bottom: 8px;
+    border-bottom: 4px solid;
+}

@@ -1,16 +1,7 @@
 import "./OptionsList.css";
 
-const OptionsList = ({ value, setValue, required }) => {
-    const options = [
-        "Programación",
-        "Front End",
-        "Data Science",
-        "Devops",
-        "UX y Diseño",
-        "Móvil",
-        "Innovación y Gestión",
-    ];
-
+const OptionsList = ({ value, setValue, required, options }) => {
+    
     const handleChange = (event) => {
         setValue(event.target.value);
     };
