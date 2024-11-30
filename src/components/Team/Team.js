@@ -1,7 +1,7 @@
 import "./Team.css";
 
 import Member from "../Member/Member";
-const Team = ({ team, members }) => {
+const Team = ({ team, members, deleteMember }) => {
     const { name, primaryColor, secondaryColor } = team;
     return (
         <>
@@ -21,7 +21,7 @@ const Team = ({ team, members }) => {
                     </h3>
                     <div className="team-members">
                         {members.map((member, index) => (
-                            <Member key={index} member={member} primaryColor={primaryColor}/>
+                            <Member key={index} member={member} primaryColor={primaryColor} deleteMember={deleteMember} />
                         ))}
                     </div>
                 </section>

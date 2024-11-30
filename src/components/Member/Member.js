@@ -1,8 +1,12 @@
 import "./Member.css";
-
-const Member = ({ member, primaryColor }) => {
+import { FaUserMinus } from "react-icons/fa";
+const Member = ({ member, primaryColor, deleteMember }) => {
     return (
         <div className="member">
+            <FaUserMinus
+                className="member__delete"
+                onClick={() => deleteMember(member)}
+            />
             <div className="member__header" style={{backgroundColor: primaryColor}}>
                 <img src={member.photo} alt={member.name} />
             </div>

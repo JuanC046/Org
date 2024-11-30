@@ -17,6 +17,24 @@ function App() {
             photo: "https://media.licdn.com/dms/image/v2/D4E03AQEETDRGt8ceAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1693932494749?e=1738195200&v=beta&t=LT_0zDOHCtUj-siS4nTbENNkSoqlaO7mgHTYcNZM9No",
             team: "Front End",
         },
+        {
+            name: "Juan López",
+            role: "Desarrollador",
+            photo: "https://media.licdn.com/dms/image/v2/D4E03AQEETDRGt8ceAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1693932494749?e=1738195200&v=beta&t=LT_0zDOHCtUj-siS4nTbENNkSoqlaO7mgHTYcNZM9No",
+            team: "Data Science",
+        },
+        {
+            name: "Juan López",
+            role: "Desarrollador",
+            photo: "https://media.licdn.com/dms/image/v2/D4E03AQEETDRGt8ceAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1693932494749?e=1738195200&v=beta&t=LT_0zDOHCtUj-siS4nTbENNkSoqlaO7mgHTYcNZM9No",
+            team: "Data Science",
+        },
+        {
+            name: "Juan López",
+            role: "Desarrollador",
+            photo: "https://media.licdn.com/dms/image/v2/D4E03AQEETDRGt8ceAw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1693932494749?e=1738195200&v=beta&t=LT_0zDOHCtUj-siS4nTbENNkSoqlaO7mgHTYcNZM9No",
+            team: "Programación",
+        },
     ]);
 
     const setShow = () => {
@@ -59,6 +77,10 @@ function App() {
         setMembers([...members, member]);
     };
 
+    const deleteMember = (member) => {
+        setMembers(members.filter((m) => m !== member));
+    }
+
     return (
         <div className="App">
             <Header />
@@ -77,6 +99,7 @@ function App() {
                     members={members.filter(
                         (member) => member.team === team.name
                     )}
+                    deleteMember={deleteMember}
                 />
             ))}
             <Footer />

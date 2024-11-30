@@ -40,8 +40,12 @@
     margin: 0;
 }
 
-.delete{
+.member__delete{
     position: absolute;
-    right: -15px;
-    top: -15px;
+    top: 15px;
+    right: 15px;
+    width: 20px;
+    height: 20px;
+    fill: #FFFFFF;
+    cursor: pointer;
 }
