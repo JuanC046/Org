@@ -5,7 +5,7 @@ const Member = ({ member, primaryColor, deleteMember }) => {
         <div className="member">
             <FaUserMinus
                 className="member__delete"
-                onClick={() => deleteMember(member)}
+                onClick={() => deleteMember(member.id)}
             />
             <div className="member__header" style={{backgroundColor: primaryColor}}>
                 <img src={member.photo} alt={member.name} />

@@ -3,11 +3,11 @@ import "./Team.css";
 
 import Member from "../Member/Member";
 const Team = ({ team, members, deleteMember, updateColor }) => {
-    const { name, primaryColor, secondaryColor } = team;
+    const { id, name, primaryColor, secondaryColor } = team;
     
 
     const handleColorChange = (e) => {
-        updateColor(e.target.value, name);
+        updateColor(e.target.value, id);
     };
     return (
         <>
@@ -18,7 +18,7 @@ const Team = ({ team, members, deleteMember, updateColor }) => {
                         backgroundColor: secondaryColor,
                     }}
                 >
-                    <input className="color-picker" type="color" value={secondaryColor}
+                    <input className="color-picker" type="color" value={primaryColor}
                     onChange={handleColorChange}/>
                     <h3
                         style={{
