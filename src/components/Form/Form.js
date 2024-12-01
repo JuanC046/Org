@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+
 import "./Form.css";
 
 import InputField from "../InputField/InputField";
@@ -24,6 +25,10 @@ const Form = ({ teams, newMember, newTeam }) => {
             photo,
             team,
         };
+        setName("");
+        setRole("");
+        setPhoto("");
+        setTeam("");
         newMember(data);
     };
     const handleSubmitTeam = (event) => {
@@ -32,6 +37,8 @@ const Form = ({ teams, newMember, newTeam }) => {
             name: teamName,
             primaryColor: teamPrimaryColor,
         };
+        setTeamName("");
+        setTeamPrimaryColor("#FFFFFF");
         newTeam(data);
     };
     return (

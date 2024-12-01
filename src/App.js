@@ -1,6 +1,7 @@
 import { useState } from "react";
-
 import { v4 as uuid } from "uuid";
+import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
 
 import "./App.css";
 
@@ -10,7 +11,6 @@ import Form from "./components/Form/Form";
 import MyOrg from "./components/MyOrg/MyOrg";
 import Team from "./components/Team/Team";
 import Footer from "./components/Footer/Footer";
-
 
 function App() {
     const [showForm, setShowForm] = useState(false);
@@ -82,6 +82,8 @@ function App() {
         },
     ]);
 
+    const [alert, setAlert] = useState({ open: false, message: "", severity: "success" });
+
     const setShow = () => {
         setShowForm(!showForm);
     };
@@ -100,7 +102,9 @@ function App() {
     const newMember = (member) => {
         member.id = uuid();
         setMembers([...members, member]);
+        setAlert({ open: true, message: "Nuevo miembro creado", severity: "success" });
     };
+
     const deleteMember = (memberId) => {
         setMembers(members.filter((member) => member.id !== memberId));
     };
@@ -108,7 +112,13 @@ function App() {
     const newTeam = (team) => {
         team.id = uuid();
         setTeams([...teams, team]);
-    }
+        setAlert({ open: true, message: "Nuevo equipo creado", severity: "success" });
+    };
+
+    const handleClose = () => {
+        setAlert({ ...alert, open: false });
+    };
+
     return (
         <div className="App">
             <Header />
@@ -118,8 +128,7 @@ function App() {
                     newMember={newMember}
                     newTeam={newTeam}
                 />
-            )}{" "}
-            {/* {showForm ? <Form /> : null} */}
+            )}
             <MyOrg setShow={setShow} />
             {teams.map((team, index) => (
                 <Team
@@ -133,6 +142,15 @@ function App() {
                 />
             ))}
             <Footer />
+            <Snackbar
+                open={alert.open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+            >
+                <Alert onClose={handleClose} severity={alert.severity}>
+                    {alert.message}
+                </Alert>
+            </Snackbar>
         </div>
     );
 }
