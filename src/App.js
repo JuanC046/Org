@@ -99,7 +99,6 @@ function App() {
 
     const newMember = (member) => {
         member.id = uuid();
-        console.log("New member:", member);
         setMembers([...members, member]);
     };
     const deleteMember = (memberId) => {
@@ -108,7 +107,6 @@ function App() {
 
     const newTeam = (team) => {
         team.id = uuid();
-        console.log("New team:", team);
         setTeams([...teams, team]);
     }
     return (

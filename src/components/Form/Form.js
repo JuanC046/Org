@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./Form.css";
 
-import TextField from "../TextField/TextField";
+import InputField from "../InputField/InputField";
 import OptionsList from "../OptionsList/OptionsList";
 import Button from "../Button/Button";
 const Form = ({ teams, newMember, newTeam }) => {
@@ -12,7 +12,7 @@ const Form = ({ teams, newMember, newTeam }) => {
     const [team, setTeam] = useState("");
 
     const [teamName, setTeamName] = useState("");
-    const [teamPrimaryColor, setTeamPrimaryColor] = useState("");
+    const [teamPrimaryColor, setTeamPrimaryColor] = useState("#FFFFFF");
 
     const [create, setCreate] = useState("member");
 
@@ -24,7 +24,6 @@ const Form = ({ teams, newMember, newTeam }) => {
             photo,
             team,
         };
-        console.log("Formulario enviado", data);
         newMember(data);
     };
     const handleSubmitTeam = (event) => {
@@ -33,7 +32,6 @@ const Form = ({ teams, newMember, newTeam }) => {
             name: teamName,
             primaryColor: teamPrimaryColor,
         };
-        console.log("Formulario enviado", data);
         newTeam(data);
     };
     return (
@@ -47,21 +45,21 @@ const Form = ({ teams, newMember, newTeam }) => {
             {create === "member" ? (
                 <form onSubmit={handleSubmitMember}>
                     <h2>Rellena el formulario para crear el colaborador.</h2>
-                    <TextField
+                    <InputField
                         label="Nombre"
                         placeholder="Ingresar nombre"
                         value={name}
                         setValue={setName}
                         required
                     />
-                    <TextField
+                    <InputField
                         label="Puesto"
                         placeholder="Ingresar puesto"
                         value={role}
                         setValue={setRole}
                         required
                     />
-                    <TextField
+                    <InputField
                         label="Foto"
                         placeholder="Ingresar enlace de foto"
                         value={photo}
@@ -79,18 +77,19 @@ const Form = ({ teams, newMember, newTeam }) => {
             ) : (
                 <form onSubmit={handleSubmitTeam}>
                     <h2>Rellena el formulario para crear el equipo.</h2>
-                    <TextField
+                    <InputField
                         label="Nombre del equipo"
                         placeholder="Ingresar nombre del equipo"
                         value={teamName}
                         setValue={setTeamName}
                         required
                     />
-                    <TextField
+                    <InputField
                         label="Color"
                         placeholder="Ingresar color en hexadecimal"
                         value={teamPrimaryColor}
                         setValue={setTeamPrimaryColor}
+                        type={"color"}
                         required
                     />
                     <Button text="Crear equipo" />

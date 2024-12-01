@@ -21,20 +21,21 @@
     align-items: center;
     gap: 0;
     width: 100%;
+    padding: 16px
 }
 .form__nav button {
     padding: 8px 16px;
     border: none;
     background-color: #f7f7f7;
     color: #212121;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
     cursor: pointer;
 }
 .form__nav button:hover {
     color: #6278F7;
     background-color: #f7f7f7;
-    border-bottom: 2px solid #6278F7;
+    border-bottom: 3px solid #6278F7;
 }
 
 .form form {
