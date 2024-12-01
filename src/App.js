@@ -11,7 +11,7 @@ import MyOrg from "./components/MyOrg/MyOrg";
 import Team from "./components/Team/Team";
 import Footer from "./components/Footer/Footer";
 
-import hexToRgba from "hex-to-rgba";
+
 function App() {
     const [showForm, setShowForm] = useState(false);
     const [teams, setTeams] = useState([
@@ -19,43 +19,36 @@ function App() {
             id: uuid(),
             name: "Programación",
             primaryColor: "#57C278",
-            secondaryColor: "#D9F7E9",
         },
         {
             id: uuid(),
             name: "Front End",
             primaryColor: "#82CFFA",
-            secondaryColor: "#E8F8FF",
         },
         {
             id: uuid(),
             name: "Data Science",
             primaryColor: "#A6D157",
-            secondaryColor: "#F0F8E2",
         },
         {
             id: uuid(),
             name: "Devops",
             primaryColor: "#E06B69",
-            secondaryColor: "#FDE7E8",
         },
         {
             id: uuid(),
             name: "UX y Diseño",
             primaryColor: "#DB6EBF",
-            secondaryColor: "#FAE9F5",
         },
         {
             id: uuid(),
             name: "Móvil",
             primaryColor: "#FFBA05",
-            secondaryColor: "#FFF5D9",
         },
         {
             id: uuid(),
             name: "Innovación y  Gestión",
             primaryColor: "#FF8A29",
-            secondaryColor: "#FFEEDF",
         },
     ]);
     const [members, setMembers] = useState([
@@ -98,7 +91,6 @@ function App() {
             teams.map((team) => {
                 if (team.id === teamId) {
                     team.primaryColor = color;
-                    team.secondaryColor = hexToRgba(color, 0.5);
                 }
                 return team;
             })
@@ -114,6 +106,11 @@ function App() {
         setMembers(members.filter((member) => member.id !== memberId));
     };
 
+    const newTeam = (team) => {
+        team.id = uuid();
+        console.log("New team:", team);
+        setTeams([...teams, team]);
+    }
     return (
         <div className="App">
             <Header />
@@ -121,6 +118,7 @@ function App() {
                 <Form
                     teams={teams.map((team) => team.name)}
                     newMember={newMember}
+                    newTeam={newTeam}
                 />
             )}{" "}
             {/* {showForm ? <Form /> : null} */}

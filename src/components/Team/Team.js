@@ -1,11 +1,12 @@
 import "./Team.css";
 
+import hexToRgba from "hex-to-rgba";
 
 import Member from "../Member/Member";
 const Team = ({ team, members, deleteMember, updateColor }) => {
-    const { id, name, primaryColor, secondaryColor } = team;
+    const { id, name, primaryColor } = team;
     
-
+    const backgroundColor = hexToRgba(primaryColor, "0.5");
     const handleColorChange = (e) => {
         updateColor(e.target.value, id);
     };
@@ -15,7 +16,7 @@ const Team = ({ team, members, deleteMember, updateColor }) => {
                 <section
                     className="team"
                     style={{
-                        backgroundColor: secondaryColor,
+                        backgroundColor: backgroundColor,
                     }}
                 >
                     <input className="color-picker" type="color" value={primaryColor}
